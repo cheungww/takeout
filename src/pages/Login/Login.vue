@@ -41,7 +41,7 @@
               </section>
               <section class="login_message">
                 <input type="text" maxlength="11" placeholder="验证码" v-model="captcha">
-                <img class="get_verification" src="http://localhost:4000/api/captcha" alt="captcha"
+                <img class="get_verification" src="http://takeout.vigor666.com:4000/api/captcha" alt="captcha"
                   @click="getCaptcha" ref="captcha">
               </section>
             </section>
@@ -188,7 +188,7 @@
       // 获取一个新的图片验证码
       getCaptcha () {
         // 每次指定的src要不一样
-        this.$refs.captcha.src = 'http://localhost:4000/api/captcha?time='+Date.now()
+        this.$refs.captcha.src = 'http://takeout.vigor666.com:4000/api/captcha?time='+Date.now()
       }
     },
 
