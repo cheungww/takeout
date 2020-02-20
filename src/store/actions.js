@@ -52,7 +52,7 @@ export default {
   },
 
   // 异步获取商家列表
-  async getShops({commit, state}) {
+  async getShops({commit, state}, callback) {
     // 发送异步ajax请求
     const {longitude, latitude} = state
     const result = await reqShops(longitude, latitude)
@@ -60,6 +60,7 @@ export default {
     if (result.code === 0) {
       const shops = result.data
       commit(RECEIVE_SHOPS, {shops})
+      callback && callback()
     }
   },
 

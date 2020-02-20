@@ -21,8 +21,8 @@
             <section class="login_verification">
               <input type="tel" maxlength="8" placeholder="验证码" v-model="code">
             </section>
-            <section class="login_hint">
-              温馨提示：未注册外卖帐号的手机号，登录时将自动注册，且代表已同意
+            <section class="login_hint" style="color: red">
+              温馨提示：暂未开通短信登录服务
               <a href="javascript:;">《用户服务协议》</a>
             </section>
           </div>
@@ -41,9 +41,13 @@
               </section>
               <section class="login_message">
                 <input type="text" maxlength="11" placeholder="验证码" v-model="captcha">
-                <img class="get_verification" src="http://takeout.vigor666.com:4000/api/captcha" alt="captcha"
+                <img class="get_verification" :src="`${baseUrl}/api/captcha`" alt="captcha"
                   @click="getCaptcha" ref="captcha">
               </section>
+            </section>
+            <section class="login_hint">
+              温馨提示：未注册外卖帐号的手机号，登录时将自动注册，且代表已同意
+              <a href="javascript:;">《用户服务协议》</a>
             </section>
           </div>
           <button class="login_submit">登录</button>
@@ -75,6 +79,8 @@
         captcha: '', // 图形验证码
         alertText: '', // 提示文本
         alertShow: false, // 是否显示警告框
+        baseUrl: 'http://takeout.vigor666.com'
+        // baseUrl: 'http://localhost:4000'
       }
     },
 
@@ -188,7 +194,7 @@
       // 获取一个新的图片验证码
       getCaptcha () {
         // 每次指定的src要不一样
-        this.$refs.captcha.src = 'http://takeout.vigor666.com:4000/api/captcha?time='+Date.now()
+        this.$refs.captcha.src = `${this.baseUrl}/api/captcha?time=`+Date.now()
       }
     },
 

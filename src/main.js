@@ -8,7 +8,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import './mock/mockServer' // 加载mockServer即可
+// import './mock/mockServer' // 加载mockServer即可
 import loading from './common/imgs/loading.gif'
 import './filters' // 加载过滤器
 

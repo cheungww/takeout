@@ -14,12 +14,14 @@ const MSite = () => import('../pages/MSite/MSite.vue')
 const Search = () => import('../pages/Search/Search.vue')
 const Order = () => import('../pages/Order/Order.vue')
 const Profile = () => import('../pages/Profile/Profile.vue')
+const NavShops = () => import('../pages/NavShops/NavShops.vue')
 
 import Login from '../pages/Login/Login.vue'
 import Shop from '../pages/Shop/Shop.vue'
 import ShopGoods from '../pages/Shop/ShopGoods/ShopGoods.vue'
 import ShopRatings from '../pages/Shop/ShopRatings/ShopRatings.vue'
 import ShopInfo from '../pages/Shop/ShopInfo/ShopInfo.vue'
+import UserInfo from '../pages/UserInfo/UserInfo.vue'
 
 // 声明使用插件
 Vue.use(VueRouter)
@@ -56,8 +58,8 @@ export default new VueRouter({
       }
     },
     {
-      path: '/',
-      redirect: '/msite'
+      path: '/userinfo',
+      component: UserInfo
     },
     {
       path: '/login',
@@ -85,5 +87,13 @@ export default new VueRouter({
         },
       ]
     },
+    {
+      path: '/navshops',
+      component: NavShops
+    },
+    {
+      path: '/',
+      redirect: '/msite'
+    }
   ]
 })

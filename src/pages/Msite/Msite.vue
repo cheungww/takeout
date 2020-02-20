@@ -21,12 +21,12 @@
           <div class="swiper-container" v-if="categorys.length">
             <div class="swiper-wrapper">
               <div class="swiper-slide" v-for="(categorys, index) in categorysArr" :key="index">
-                <a href="javascript:" class="link_to_food" v-for="(category, index) in categorys" :key="index">
+                <router-link :to="{path: '/navshops', query: {id: category.id}}" class="link_to_food" v-for="(category, index) in categorys" :key="index">
                   <div class="food_container">
                     <img :src="baseImageUrl+category.image_url">
                   </div>
                   <span>{{category.title}}</span>
-                </a>
+                </router-link>
               </div>
 
             </div>
