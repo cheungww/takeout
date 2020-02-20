@@ -14,7 +14,7 @@
 <script>
 import HeaderTop from "../../components/HeaderTop/HeaderTop.vue";
 import ShopList from '../../components/ShopList/ShopList.vue'
-import BScroll from 'better-scroll'
+// import BScroll from 'better-scroll'
 
 import { mapState } from "vuex";
 
@@ -25,13 +25,14 @@ export default {
   },
   mounted () {
     this.$store.dispatch('getCategorys')
-    this.$store.dispatch('getShops', () => {
+    this.$store.dispatch('getShops')
+    /* this.$store.dispatch('getShops', () => {
       this.$nextTick(() => {
         new BScroll('.navshops_list', {
           click: true
         })
       })
-    })
+    }) */
   },
   computed: {
     ...mapState(["categorys"]),
